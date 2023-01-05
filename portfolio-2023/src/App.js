@@ -9,6 +9,7 @@ import Qualification from "./components/qualification/Qualification";
 import Certificates from "./components/certificates/Certificates";
 import Contact from "./components/contact/Contact";
 import Footer from "./components/footer/Footer";
+import ScrollUp from "./components/scrollup/ScrollUp";
 
 function App() {
   return (
@@ -23,8 +24,10 @@ function App() {
         <Qualification />
         <Certificates />
         <Contact />
-        <Footer />
       </main>
+
+      <ScrollUp />
+      <Footer />
     </div>
   );
 }
