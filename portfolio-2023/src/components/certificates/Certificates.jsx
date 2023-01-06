@@ -12,12 +12,13 @@ import { Pagination } from "swiper";
 const Certificates = () => {
   return (
     <section className="certificate container section">
-      <h2 className="section__title">Certificates</h2>
-      <span className="section__subtitle">Acquired</span>
+      <h2 className="section__title">Certificates Acquired</h2>
+      <span className="section__subtitle">Swipe by dragging</span>
 
       <Swiper
         className="certificate container"
         loop={true}
+        effect="fade"
         grabCursor={true}
         spaceBetween={24}
         pagination={{
@@ -25,22 +26,18 @@ const Certificates = () => {
         }}
         breakpoints={{
           576: {
-            slidesPerView: 2,
+            slidesPerView: 1,
           },
           768: {
-            slidesPerView: 2,
-            spaceBetween: 48,
+            slidesPerView: 1,
           },
         }}
-        modules={Pagination}
+        modules={[Pagination]}
       >
-        {Data.map(({ id, image, title, description }) => {
+        {Data.map(({ id, image }) => {
           return (
             <SwiperSlide className="certificate__card" key={id}>
               <img src={image} alt="" className="certificate__img" />
-
-              <h3 className="certificate__name">{title}</h3>
-              <p className="certificate__description">{description}</p>
             </SwiperSlide>
           );
         })}

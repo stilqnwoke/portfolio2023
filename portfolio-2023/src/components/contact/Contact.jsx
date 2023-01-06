@@ -1,12 +1,23 @@
 import React, { useRef } from "react";
 import emailjs from "@emailjs/browser";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "./Contact.css";
 
 const Contact = () => {
   const form = useRef();
 
+  const options = {
+    autoClose: 5000,
+    position: toast.POSITION.TOP_RIGHT,
+  };
+
   const sendEmail = (e) => {
     e.preventDefault();
+
+    console.log(
+      toast.success(`Email was sent! I will get back to you ASAP`, options)
+    );
 
     emailjs.sendForm(
       "service_qblwxpl",
@@ -33,7 +44,7 @@ const Contact = () => {
               <h3 className="contact__card-title">LinkedIn</h3>
               <span className="contact__card-data">dsadassd</span>
 
-              <a href=" " className="contact__button">
+              <a href="" className="contact__button">
                 Write me
                 <i className="bx bx-right-arrow-alt contact__button-icon"></i>
               </a>
@@ -78,6 +89,7 @@ const Contact = () => {
                 name="name"
                 placeholder="Insert your name"
                 className="contact__form-input"
+                required
               />
             </div>
 
@@ -90,6 +102,7 @@ const Contact = () => {
                 name="email"
                 placeholder="Insert your email"
                 className="contact__form-input"
+                required
               />
             </div>
 
@@ -103,6 +116,7 @@ const Contact = () => {
                 rows="10"
                 className="contact__form-input"
                 placeholder="Write the description"
+                required
               ></textarea>
             </div>
 
@@ -129,6 +143,7 @@ const Contact = () => {
           </form>
         </div>
       </div>
+      <ToastContainer />
     </section>
   );
 };
